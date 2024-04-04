@@ -1,0 +1,16 @@
+html,
+body {
+  margin: 0;
+  width: 100% !important;
+  height: 100% !important;
+  font-family: "Inter" !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+#root {
+  height: 100%;
+}

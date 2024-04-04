@@ -1,0 +1,38 @@
+@import "../../../styles/variables.scss";
+
+.forgot_card {
+    background-color: $white;
+    box-shadow:
+        rgba(0, 0, 0, 0.16) 0px 3px 6px,
+        rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+    .image-box {
+        background-color: $green4;
+        font-size: 20px;
+    }
+
+    .h2_text {
+        color: $gray6;
+        font-size: 35px !important;
+    }
+
+    .forgot_btn {
+        background-color: $green4;
+        color: $white;
+        margin-top: 5px;
+        padding: 5px 100px 5px 100px;
+        border-radius: 5px;
+        font-size: 25px;
+        box-shadow:
+            rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+
+    .svg-box {
+        top: 0px;
+        bottom: -7px !important;
+    }
+    .full-width {
+        width: 100%;
+    }
+}

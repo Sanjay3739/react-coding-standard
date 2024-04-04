@@ -1,0 +1,134 @@
+.dashboard_details {
+    margin: 35px;
+}
+.box_btn {
+    display: flex;
+    justify-content: space-between;
+}
+.custom-button {
+    text-transform: none !important;
+    font-size: 12px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.custom-button > img {
+    margin-right: 5px;
+}
+.search {
+    background-color: #fff;
+    padding-left: 10px;
+}
+.text-gray {
+    color: gray;
+}
+
+.service_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box {
+    width: 15%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow:
+        rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+        rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.new_box {
+    display: flex;
+    flex-direction: column;
+    color: #6443a3;
+}
+
+.pending_box {
+    display: flex;
+    flex-direction: column;
+    color: #00d4f0;
+}
+
+.active_box {
+    display: flex;
+    flex-direction: column;
+    color: #267845;
+}
+
+.conclude_box {
+    display: flex;
+    flex-direction: column;
+    color: #d214a9;
+}
+
+.unpaid_box {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+}
+
+.close_box {
+    display: flex;
+    flex-direction: column;
+    color: #08a0bf;
+}
+
+.box_text {
+    margin-top: 5px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.svg_text {
+    display: flex;
+    align-items: center;
+}
+
+.svg_text > img {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .box {
+        width: calc(50% - 10px);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .box {
+        width: 100%;
+    }
+}
+
+.new_container {
+    background-color: #ebd9f5;
+    border: 1px solid #cd92e9;
+}
+
+.pending_container {
+    background-color: #defeff;
+    border: 1px solid #b1ddf1;
+}
+
+.active_container {
+    background-color: #dbffe5;
+    border: 1px solid #267845;
+}
+
+.conclude_container {
+    background-color: #ffdfff;
+    border: 1px solid #cc78be;
+}
+
+.close_container {
+    background-color: #b8f6f8;
+    border: 1px solid #2e9aad;
+}
+
+.unpaid_container {
+    background-color: #8166be;
+    border: 1px solid #cc78be;
+}

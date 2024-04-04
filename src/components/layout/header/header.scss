@@ -1,0 +1,117 @@
+body {
+    margin: 0px !important;
+}
+
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav li {
+    float: left;
+}
+
+.nav li span {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav li.active span {
+    border-bottom: 2px solid #0CAFFF;
+    color: #0CAFFF;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-left {
+    flex: 1;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 98px;
+    height: auto;
+}
+
+.button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.admin-name {
+    display: flex;
+    align-items: center;
+}
+
+.navContainer {
+    background-color: #fff;
+    box-shadow:
+        rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.hr_line {
+    border-color: #d8d7d7;
+}
+
+.hamburger {
+    display: none !important;
+}
+
+.service-box {
+    background-color: #f3f3f3;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.service-box h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.service-box p {
+    font-size: 16px;
+    color: #666;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+
+

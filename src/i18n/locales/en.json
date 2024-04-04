@@ -1,0 +1,63 @@
+{
+  "login": {
+    "text1": " Sign in to your account",
+    "desc1": "By signing in you are agreeing to our",
+    "terms": "Terms and Conditions",
+    "welcome": "Hello, Welcome !",
+    "getStarted": "Get started",
+    "forgotPassword": "Forgot Password ?"
+  },
+  "failed": {
+    "userData": "Error fetching user data:",
+    "LoginFailed": "Login Failed! Please check your data",
+    "notAuthorize": "You are not Authorize person",
+    "fetchDataError": "Error fetching data",
+    "registeredFailed": "Registration Failed, Please try again later.",
+    "securityCodeLength": "Please Provide Correct Security Code",
+    "verificationFailed": "Verification Failed, Please try again later.",
+    "securityCodeRequired": "Security Code Required",
+    "passwordUpdatedFailed": "Password Updated Failed!",
+    "resetPasswordLinkFailed": "Reset password link has been Failed!"
+  },
+  "success": {
+    "LoginSuccess": "Login successful! Security code sent to your email",
+    "passwordUpdated": "Password Updated Successfully!",
+    "registeredSuccess": "Successfully Registered",
+    "verificationSuccess": "Verification Successfully done",
+    "resetPasswordLinkSuccess": "Reset password link Successfully sent you in email!"
+  },
+  "register": {
+    "desc1": "By signing up you are agreeing to our",
+    "terms": "Terms and Conditions",
+    "SignUp": "Sign Up to your account",
+    "welcome": "Hello, Welcome !",
+    "loginHere": " Login hear?",
+    "getStarted": "Get started",
+    "accountCreate": "Let us create your account"
+  },
+  "dashboard": {
+    "file": "FILES",
+    "title": "WELCOME",
+    "logout": "Log out",
+    "dropBox": "DropBox",
+    "googleDrive": "Google Drive",
+    "viewProfile": "View profile",
+    "selectService": "Select service"
+  },
+  "resetPassword": {
+    "title": "Reset Password Here !",
+    "desc1": "Enter Your new Password..",
+    "terms": "Terms and Conditions",
+    "SignIn": "Sign In now",
+    "notNumber": " Not a member?",
+    "resetPassword": "Reset Password"
+  },
+  "forgotPassword": {
+    "desc1": "Enter the email address you used when you joined and well send you Link to reset your password.",
+    "desc2": "For security reasons, we do NOT store your password. So rest assured that we will never send your password via email.",
+    "forgot": "Forgot Password🔒?",
+    "SignUp": "Sign up now",
+    "notNumber": " Not a member?",
+    "ResetPassword": "Reset Password"
+  }
+}

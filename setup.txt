@@ -1,0 +1,13 @@
+npm install eslint prettier eslint-plugin-prettier eslint-config-prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser --save-dev --force
+npm install react-router-dom @types/react-router-dom
+npm install sass
+npm install @mui/material @emotion/react @emotion/styled
+npm install axios
+npm install react-icons
+npm install i18next react-i18next @types/i18next @types/react-i18next
+npm install react-toastify @types/react-toastify
+npm install @material-ui/icons
+
+
+
+    

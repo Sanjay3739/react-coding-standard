@@ -1,0 +1,30 @@
+.wave {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	z-index: -1;
+}
+
+.register-container {
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.img {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: white;
+	font-size: 35px;
+}
+
+.form-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}

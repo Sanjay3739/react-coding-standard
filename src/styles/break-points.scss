@@ -1,0 +1,34 @@
+@media screen and (max-width: 1050px) {
+    .login-container,
+    .register-container {
+        grid-gap: 5rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+  
+
+    .form-content h2 {
+        font-size: 2.4rem;
+        margin: 8px 0;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .login-container,
+    .register-container {
+        grid-template-columns: none !important;
+    }
+
+    .img, .image-box {
+        display: none !important;
+    }
+
+    .wave {
+        display: none;
+    }
+
+    .form-content {
+        justify-content: center;
+    }
+}
