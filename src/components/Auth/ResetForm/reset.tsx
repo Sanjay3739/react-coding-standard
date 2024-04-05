@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../ForgotForm/forgot.scss";
 import Auth from "../svg/authentication.svg";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { ResetApi } from "../../../services/AuthApi/reset";
 import { useTranslation } from "react-i18next";
 
@@ -155,7 +154,7 @@ const ResetForm: React.FC = () => {
                     {t("resetPassword.resetPassword")}
                   </button>
                   <a
-                    href="#"
+                    href=""
                     className="text-center text-green-600 hover:text-green-700"
                   >
                     {" "}

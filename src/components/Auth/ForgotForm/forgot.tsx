@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Box from '@mui/material/Box';
 import "./forgot.scss";
 import Auth from "../svg/authentication.svg";
 import { useNavigate } from "react-router-dom";
@@ -40,7 +41,7 @@ const ForgotForm: React.FC = () => {
 
   return (
     <>
-      <div className="bg-green-100 min-h-screen flex items-center justify-center">
+      <Box className="bg-green-100 min-h-screen flex items-center justify-center">
         <div className="max-w-4xl mx-auto p-6 forgot_card">
           <div className="flex gap-4">
             <div className="w-full md:w-1/3 flex items-center justify-center image-box">
@@ -96,7 +97,7 @@ const ForgotForm: React.FC = () => {
                     {t("forgotPassword.ResetPassword")}
                   </button>
                   <a
-                    href="#"
+                    href=""
                     className="text-center text-green-600 hover:text-green-700"
                   >
                     {" "}
@@ -110,7 +111,7 @@ const ForgotForm: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Box >
     </>
   );
 };

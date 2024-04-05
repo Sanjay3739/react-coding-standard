@@ -5,14 +5,17 @@ import { useNavigate } from "react-router-dom";
 import { LoginApi } from "../../../services/AuthApi/login";
 import "../LoginForm/login.scss";
 import { useTranslation } from "react-i18next";
+import { LoginFormData } from "../../../services/state";
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState<LoginFormData>({
+    email: "",
+    password: "",
+  });
   const [errors, setErrors] = useState<any>({});
   const { t } = useTranslation();
-
+  
   const handleRegister = () => {
     navigate("/register");
   };
@@ -24,11 +27,11 @@ const LoginForm: React.FC = () => {
   const validateForm = () => {
     const newErrors: any = {};
 
-    if (!email.trim()) {
+    if (!formData.email.trim()) {
       newErrors.email = ["Email is required"];
     }
 
-    if (!password.trim()) {
+    if (!formData.password.trim()) {
       newErrors.password = ["Password is required"];
     }
 
@@ -36,18 +39,26 @@ const LoginForm: React.FC = () => {
 
     return Object.keys(newErrors).length === 0;
   };
-
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (validateForm()) {
       try {
-        const response = await LoginApi(email, password);
+        const response = await LoginApi(formData);
+        console.log("response", response);
       } catch (error: any) {
         setErrors(error.message);
       }
     }
   };
+   
 
   return (
     <>
@@ -82,8 +93,8 @@ const LoginForm: React.FC = () => {
                     errors.email ? "border-red-500" : "border-gray-300"
                   } form_input input-width`}
                   placeholder="Email Address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={formData.email}
+                  onChange={handleChange}
                 />
                 <div className="absolute svg-box left-0 pl-3 flex items-center pointer-events-none">
                   <i className="fas fa-envelope h-5 w-5 text-gray-400"></i>
@@ -105,8 +116,8 @@ const LoginForm: React.FC = () => {
                     errors.password ? "border-red-500" : "border-gray-300"
                   } form_input input-width`}
                   placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={formData.password}
+                  onChange={handleChange}
                 />
                 <div className="absolute svg-box left-0 pl-3 flex items-center pointer-events-none">
                   <i className="fas fa-lock h-5 w-5 text-gray-400"></i>
@@ -124,7 +135,7 @@ const LoginForm: React.FC = () => {
             <input type="submit" className="submit_btn" value="Login" />
             <div className="card-info">
               <p>
-                {t("login.desc1")} <a href="#">{t("login.terms")}</a>
+                {t("login.desc1")} <a href="">{t("login.terms")}</a>
               </p>
             </div>
           </form>
