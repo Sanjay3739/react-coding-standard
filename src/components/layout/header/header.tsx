@@ -1,69 +1,98 @@
 import React, { useState, useEffect } from "react";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
+import { Link, useLocation } from "react-router-dom";
 import "./header.scss";
-import Logo from "../../../assets/logo.png";
-import MoonIcon from "./svg/moon.svg";
-import Hamburger from "./svg/hamburger.svg";
+import { fetchUserFromIndexedDB } from "../../../store/indexDb";
+import Navbar from "./navbar";
 
-function Header() {
-  const [activeItem, setActiveItem] = useState("Dashboard");
+const Header: React.FC = () => {
+  const [activeItem, setActiveItem] = useState("");
+  const location = useLocation();
+  const [user, setUser] = useState<any>(null);
+  const id = location.pathname.split("/").pop();
+  const userId = id !== undefined ? parseInt(id, 10) : undefined;
 
   useEffect(() => {
-    setActiveItem("Dashboard");
+    setActiveItem("");
   }, []);
 
+  useEffect(() => {
+    async function fetchData() {
+      if (userId !== undefined) {
+        const savedUser = await fetchUserFromIndexedDB(userId);
+        setUser(savedUser);
+      }
+    }
+    fetchData();
+  }, [userId]);
   const handleItemClick = (item: any) => {
     setActiveItem(item);
   };
+ 
   return (
     <>
       {" "}
       <div className="navContainer">
-        <nav className="navbar">
-          <div className="navbar-left">
-            <img src={Logo} className="logo" title="image" />
-          </div>
-          <div className="navbar-right">
-            <Stack spacing={2} direction="row">
-              <Button className="hamburger">
-              <img src={Hamburger} alt="Hamburger"  />
-              </Button>
-              <span className="admin-name">Admin: </span>
-              <Button variant="outlined" className="button custom-button">
-                Logout
-              </Button>
-              <Button variant="outlined" className="button">
-              <img src={MoonIcon} alt="MoonIcon" />
-              </Button>
-            </Stack>{" "}
-          </div>
-        </nav>
+        <Navbar user={user} userId={userId ?? null} />
         <hr className="hr_line" />
         <ul className="nav">
           <li className={activeItem === "Dashboard" ? "active" : ""}>
-            <span onClick={() => handleItemClick("Dashboard")}>Dashboard</span>
+            <Link
+              className="link"
+              to={`/dashboard/${userId}`}
+              onClick={() => handleItemClick("Dashboard")}
+            >
+              Dashboard
+            </Link>
           </li>
           <li className={activeItem === "profile" ? "active" : ""}>
-            <span onClick={() => handleItemClick("profile")}>My Profile</span>
+            <Link
+              className="link"
+              to={`/profile/${userId}`}
+              onClick={() => handleItemClick("profile")}
+            >
+              My Profile
+            </Link>
           </li>
           <li className={activeItem === "provider" ? "active" : ""}>
-            <span onClick={() => handleItemClick("provider")}>Providers</span>
+            <Link
+              className="link"
+              to={`/providers/${userId}`}
+              onClick={() => handleItemClick("provider")}
+            >
+              Providers
+            </Link>
           </li>
           <li className={activeItem === "partner" ? "active" : ""}>
-            <span onClick={() => handleItemClick("partner")}>Partner</span>
+            <Link
+              className="link"
+              to={`/partner/${userId}`}
+              onClick={() => handleItemClick("partner")}
+            >
+              Partner
+            </Link>
           </li>
           <li className={activeItem === "access" ? "active" : ""}>
-            <span onClick={() => handleItemClick("access")}>Access</span>
+            <Link
+              className="link"
+              to={`/access/${userId}`}
+              onClick={() => handleItemClick("access")}
+            >
+              Access
+            </Link>
           </li>
-
           <li className={activeItem === "record" ? "active" : ""}>
-            <span onClick={() => handleItemClick("record")}>Records</span>
+            <Link
+              className="link"
+              to={`/records/${userId}`}
+              onClick={() => handleItemClick("record")}
+            >
+              Records
+            </Link>
           </li>
         </ul>
       </div>
     </>
   );
-}
+};
 
 export default Header;

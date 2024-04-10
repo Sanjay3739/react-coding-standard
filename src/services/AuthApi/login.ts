@@ -10,13 +10,18 @@ export const LoginApi = async (formData: LoginFormData) => {
       `${baseUrl}/login`,
       formData,
       {
+        method: 'post',
         headers: {
           'Content-Type': 'application/json'
         }
       }
     );
-    return response.data;
+    if (response.data) {
+      return response;
+    } 
+   
   } catch (error: any) {
+    console.error("error", error);
     handleApiError(error);
   }
 };

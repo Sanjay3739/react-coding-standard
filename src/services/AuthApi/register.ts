@@ -10,12 +10,13 @@ export const RegisterApi = async (formData: RegisterFormData) => {
       `${baseUrl}/register`,
       formData,
       {
+        method: 'post',
         headers: {
           'Content-Type': 'application/json'
         }
       }
     );
-    return response.data;
+    return response;
   } catch (error: any) {
     handleApiError(error);
   }

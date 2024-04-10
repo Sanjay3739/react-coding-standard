@@ -1,0 +1,23 @@
+.form-input,
+.form-select {
+    background: #edf2f7;
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.25rem;
+}
+.image_selector {
+    background: #edf2f7;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.25rem;
+    width: 100%;
+}
+
+.light {
+    background-color: white;
+    color: rgb(32, 30, 30);
+}
+
+.dark {
+    background-color: rgb(32, 30, 30);
+    color: white;
+}

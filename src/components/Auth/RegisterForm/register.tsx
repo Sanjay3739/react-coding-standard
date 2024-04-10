@@ -6,9 +6,12 @@ import { useNavigate } from "react-router-dom";
 import { RegisterApi } from "../../../services/AuthApi/register";
 import { useTranslation } from "react-i18next";
 import { RegisterFormData } from "../../../services/state";
+import Loader from "../../layout/loader/Loader";
+import { toast } from "react-toastify";
 
 const RegisterForm: React.FC = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<RegisterFormData>({
     userName: "",
     email: "",
@@ -25,7 +28,7 @@ const RegisterForm: React.FC = () => {
 
   const validateForm = () => {
     const newErrors: any = {};
-
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
     if (!formData.userName.trim()) {
       newErrors.userName = ["User Name is required"];
     }
@@ -41,6 +44,11 @@ const RegisterForm: React.FC = () => {
     if (!formData.password.trim()) {
       newErrors.password = ["Password is required"];
     }
+    // if (!passwordRegex.test(formData.password.trim())) {
+    //   newErrors.password = [
+    //     "Password must contain at least one uppercase letter, one lowercase letter, and one number",
+    //   ];
+    // }
 
     setErrors(newErrors);
 
@@ -55,18 +63,26 @@ const RegisterForm: React.FC = () => {
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setLoading(true);
     if (validateForm()) {
       try {
         const response = await RegisterApi(formData);
-        console.log("response", response);
+        if (response?.data.success === true && response.data.status === 201) {
+          toast.success("user Registered successfully done.");
+          navigate("/");
+        }else{
+          toast.error("user Registered successfully done.");
+        }
       } catch (error: any) {
         setErrors(error.message);
+      } finally {
+        setLoading(false);
       }
     }
   };
   return (
     <>
+      {loading && <Loader />}
       <div className="register-container">
         <div className="form-content">
           <form onSubmit={handleSubmit} className="auth_form">

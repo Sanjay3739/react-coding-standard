@@ -10,6 +10,11 @@ import LoginForm from "./components/Auth/LoginForm/login";
 import Register from "./components/Auth/RegisterForm/register";
 import ForgotForm from "./components/Auth/ForgotForm/forgot";
 import ResetForm from "./components/Auth/ResetForm/reset";
+import Profile from "./components/Profile/profile";
+import Provider from "./components/Provider/provider";
+import Partner from "./components/Partner/partner";
+import Records from "./components/Records/record";
+import Access from "./components/Access/access";
 
 const App: React.FC = () => {
   return (
@@ -27,10 +32,16 @@ const App: React.FC = () => {
               <>
                 {" "}
                 <Header />
-                <Routes>
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  {/* <Route path="/profile" element={<Account />} /> */}
-                </Routes>
+                <div className="dashboard_details">
+                  <Routes>
+                    <Route path="/dashboard/:id" element={<Dashboard />} />
+                    <Route path="/profile/:id" element={<Profile />} />
+                    <Route path="/providers/:id" element={<Provider />} />
+                    <Route path="/partner/:id" element={<Partner />} />
+                    <Route path="/records/:id" element={<Records />} />
+                    <Route path="/access/:id" element={<Access />} />
+                  </Routes>
+                </div>
               </>
             }
           />

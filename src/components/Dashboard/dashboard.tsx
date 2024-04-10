@@ -12,34 +12,32 @@ import ServiceButton from "./Page/serviceBtn";
 const Dashboard: React.FC = () => {
   return (
     <>
-      <div className="dashboard_details">
-        <ServiceButton />
-        <div className="box_btn">
-          <span>Patients</span>
-          <div>
-            <Stack spacing={1} direction="row">
-              <Button variant="contained" className="button custom-button">
-                <img src={SendIcon} title="image" /> Send Link
-              </Button>
-              <Button variant="contained" className="button custom-button">
-                <img src={CreateRequest} title="image" /> Create Request
-              </Button>{" "}
-              <Button variant="contained" className="button custom-button">
-                <img src={Export} title="image" /> Export
-              </Button>{" "}
-              <Button variant="contained" className="button custom-button">
-                <img src={ExportAll} title="image" />
-                Export All
-              </Button>
-              <Button variant="contained" className="button custom-button">
-                <img src={SupportTeam} title="image" />
-                Request DTY Support
-              </Button>
-            </Stack>
-          </div>
-        </div>{" "}
-        <Table />
-      </div>
+      <ServiceButton />
+      <div className="box_btn">
+        <span>Patients</span>
+        <div>
+          <Stack spacing={1} direction="row">
+            <Button variant="contained" className="button custom-button">
+              <img src={SendIcon} title="image" /> Send Link
+            </Button>
+            <Button variant="contained" className="button custom-button">
+              <img src={CreateRequest} title="image" /> Create Request
+            </Button>{" "}
+            <Button variant="contained" className="button custom-button">
+              <img src={Export} title="image" /> Export
+            </Button>{" "}
+            <Button variant="contained" className="button custom-button">
+              <img src={ExportAll} title="image" />
+              Export All
+            </Button>
+            <Button variant="contained" className="button custom-button">
+              <img src={SupportTeam} title="image" />
+              Request DTY Support
+            </Button>
+          </Stack>
+        </div>
+      </div>{" "}
+      <Table />
     </>
   );
 };

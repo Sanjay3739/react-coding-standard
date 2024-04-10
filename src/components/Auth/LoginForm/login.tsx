@@ -6,16 +6,20 @@ import { LoginApi } from "../../../services/AuthApi/login";
 import "../LoginForm/login.scss";
 import { useTranslation } from "react-i18next";
 import { LoginFormData } from "../../../services/state";
+import { toast } from "react-toastify";
+import Loader from "../../layout/loader/Loader";
+import { saveUserToIndexedDB } from "../../../store/indexDb";
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
     password: "",
   });
   const [errors, setErrors] = useState<any>({});
   const { t } = useTranslation();
-  
+
   const handleRegister = () => {
     navigate("/register");
   };
@@ -34,7 +38,6 @@ const LoginForm: React.FC = () => {
     if (!formData.password.trim()) {
       newErrors.password = ["Password is required"];
     }
-
     setErrors(newErrors);
 
     return Object.keys(newErrors).length === 0;
@@ -48,20 +51,34 @@ const LoginForm: React.FC = () => {
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setLoading(true);
     if (validateForm()) {
       try {
         const response = await LoginApi(formData);
-        console.log("response", response);
+        if (response?.data.success === true && response.data.status === 201) {
+          console.log("response.data.data.user", response.data.data);
+          const user = response.data.data.user;
+          const token = response.data.data;
+          saveUserToIndexedDB(user, token);
+          toast.success("user login successfully done.");
+          navigate(`/dashboard/${response.data.data.user.id}`);
+        } else if (
+          response?.data.success === false &&
+          response.data.status === 400
+        ) {
+          toast.error("Invalid Credentials");
+        }
       } catch (error: any) {
         setErrors(error.message);
+      } finally {
+        setLoading(false);
       }
     }
   };
-   
 
   return (
     <>
+      {loading && <Loader />}
       <div className="login-container">
         <div className="img">
           <span className="signIn">
