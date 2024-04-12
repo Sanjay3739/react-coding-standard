@@ -1,6 +1,8 @@
 import React from "react";
 import "./profile.scss";
-import BackIcon from "./svg/back.svg";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import { Button } from "@mui/material";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const Profile: React.FC = () => {
   return (
@@ -8,16 +10,14 @@ const Profile: React.FC = () => {
       <div className="p-8">
         <div className="flex justify-between  max-w-4xl mx-auto items-center mb-4">
           <h2 className="text-2xl font-semibold">My Profile</h2>
-          <button className="border-2 border-blue-500 flex justify-between items-center text-blue-500 py-2 px-4 rounded transition duration-300 w-full sm:w-auto">
-            <img src={BackIcon} alt="Back" className="mr-2" />
-            Button
-          </button>
+
+          <Button variant="outlined" startIcon={<ChevronLeftIcon />}>
+            Back
+          </Button>
         </div>
         <div className="bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
           <div className="flex justify-end mb-3">
-            <button className="border-2 border-blue-500 py-2 px-4 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition duration-300">
-              Request To Admin
-            </button>
+            <button className="border-btn">Request To Admin</button>
           </div>
           <div className="border-b-2 border-gray-200 mb-4">
             <h3 className="text-lg font-semibold mb-2">Account Information</h3>
@@ -26,20 +26,18 @@ const Profile: React.FC = () => {
                 type="text"
                 name="name"
                 placeholder="Name"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
               <input
                 type="password"
                 name="Password"
                 placeholder="Password"
-                className="form-input"
+                className="form-inputs"
               />
             </div>
             <div className="flex justify-end mb-3 mt-4">
-              <button className="border-2 border-blue-500 py-2 px-4 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition duration-300">
-                Reset Password
-              </button>
+              <button className="border-btn">Reset Password</button>
             </div>
           </div>
           <div className="border-b-2 border-gray-200 mb-4">
@@ -51,28 +49,28 @@ const Profile: React.FC = () => {
                 type="text"
                 name="first_name"
                 placeholder="First Name"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
               <input
                 type="text"
                 name="last_name"
                 placeholder="Last Name"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
               <input
                 type="email"
                 name="Email"
                 placeholder="Email"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
               <input
                 type="number"
                 name="phone"
                 placeholder="Phone Number"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
 
@@ -80,14 +78,14 @@ const Profile: React.FC = () => {
                 type="text"
                 name="medical_license"
                 placeholder="Medical License"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
               <input
                 type="number"
                 name="npi_number"
                 placeholder="NPI Number"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
               <div className="bg-gray-50 ">
@@ -133,42 +131,42 @@ const Profile: React.FC = () => {
                 type="text"
                 name="address-1"
                 placeholder="Address-1"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
               <input
                 type="text"
                 name="address-2"
                 placeholder="Address-1"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
               <input
                 type="text"
                 name="city"
                 placeholder="City"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
               <input
                 type="text"
                 name="state"
                 placeholder="State"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
               <input
                 type="text"
                 name="zip"
                 placeholder="Zip Code"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
               <input
                 type="number"
                 name="phone"
                 placeholder="Phone Number"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
             </div>
@@ -180,17 +178,17 @@ const Profile: React.FC = () => {
                 type="text"
                 placeholder="Name"
                 name="name"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
               <input
                 type="text"
                 name="website"
                 placeholder="Website"
-                className="form-input"
+                className="form-inputs"
                 title="input"
               />
-              <div className=" image_selector border border-gray-300  flex items-center justify-between">
+              <div className=" image_selector border border-gray-300  content_between_of_div">
                 <input
                   type="file"
                   accept="image/*"
@@ -199,16 +197,22 @@ const Profile: React.FC = () => {
                 />
                 <label
                   htmlFor="imageInput"
-                  className="cursor-pointer flex items-center space-x-2 ml-3"
+                  className="cursor-pointer flex items-center space-x-2 ml-3 "
                 >
                   <span>Select Image</span>
                 </label>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                  Upload
-                </button>
+                <Button
+                  component="label"
+                  role={undefined}
+                  variant="contained"
+                  tabIndex={-1}
+                  startIcon={<CloudUploadIcon />}
+                >
+                  Upload file
+                </Button>
               </div>
               <div className="flex items-center ">
-                <div className=" image_selector border border-gray-300  flex items-center justify-between">
+                <div className=" image_selector border border-gray-300  content_between_of_div">
                   <input
                     type="file"
                     accept="image/*"
@@ -221,28 +225,32 @@ const Profile: React.FC = () => {
                   >
                     <span>Select Image</span>
                   </label>
-                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Upload
-                  </button>
+                  <Button
+                    component="label"
+                    role={undefined}
+                    variant="contained"
+                    tabIndex={-1}
+                    startIcon={<CloudUploadIcon />}
+                  >
+                    Upload file
+                  </Button>
                 </div>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                  Create
-                </button>
+                <button className="bg-btn content_center_of_div">Create</button>
               </div>
             </div>
           </div>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2 ">
-              <h2 className="text-lg text-gray font-semibold">Provider Agreement</h2>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Create
-              </button>
+              <h2 className="text-lg text-gray font-semibold">
+                Provider Agreement
+              </h2>
+              <button className="bg-btn  ">Create</button>
             </div>
             <div className="flex items-center gap-5">
-              <h2 className="text-lg text-gray  font-semibold">HIPAA Compliance</h2>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Create
-              </button>
+              <h2 className="text-lg text-gray  font-semibold">
+                HIPAA Compliance
+              </h2>
+              <button className="bg-btn ">Create</button>
             </div>
           </div>
         </div>

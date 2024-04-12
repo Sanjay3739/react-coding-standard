@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import CreateShiftModal from "./Page/recordTable";
+import Model from "./Page/modal";
+import RecordTable from "./Page/recordTable";
 
 const Records: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -20,8 +21,9 @@ const Records: React.FC = () => {
           >
             Create Shift
           </button>
-          <CreateShiftModal isOpen={modalOpen} onClose={closeModal} />
+          <Model isOpen={modalOpen} onClose={closeModal} />
         </div>
+        <RecordTable />
       </div>
     </>
   );

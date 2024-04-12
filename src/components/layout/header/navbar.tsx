@@ -48,14 +48,10 @@ const Navbar: React.FC<NavbarProps> = ({ user, userId }) => {
             <span className="admin-name">
               {user?.user.userName ?? "Loading"}
             </span>
-            <Button
-              variant="outlined"
-              className="button custom-button"
-              onClick={handleLogout}
-            >
+            <button className="border-btn" onClick={handleLogout}>
               Logout
-            </Button>
-            <Button variant="outlined" onClick={toggleMode} className="button">
+            </button>
+            <Button variant="outlined" onClick={toggleMode} className="border-btn">
               <img src={MoonIcon} alt="MoonIcon" />
             </Button>
           </Stack>{" "}

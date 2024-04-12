@@ -99,8 +99,8 @@ const PartnerTable: React.FC = () => {
                       340
                     </td>
                     <td className="border-t-0 flex flex-wrap items-center gap-3 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    <Button variant="outlined">Edit</Button>
-                      <Button variant="outlined">Delete</Button>
+                      <button className="border-btn">Edit</button>
+                      <button className="border-btn">Delete</button>
                     </td>
                   </tr>
                 </tbody>

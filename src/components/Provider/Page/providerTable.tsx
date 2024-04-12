@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, MenuItem, Select } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import ProviderModel from "./modal";
 
 const ProviderTable: React.FC = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
   return (
     <>
       <section className="mt-8">
@@ -24,6 +34,7 @@ const ProviderTable: React.FC = () => {
                 <Button variant="contained">Create Provider Account</Button>
               </div>
             </div>
+            <ProviderModel showModal={showModal} closeModal={closeModal} />
             <div className="block w-full overflow-x-auto">
               <table className="items-center bg-transparent w-full border-collapse ">
                 <thead>
@@ -84,8 +95,15 @@ const ProviderTable: React.FC = () => {
                       340
                     </td>
                     <td className="border-t-0 flex flex-wrap items-center gap-3 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                      <Button variant="outlined">Contact</Button>
-                      <Button variant="outlined">Edit</Button>
+                      <button
+                        onClick={openModal}
+                        className="border-btn"
+                      >
+                        Contact
+                      </button>
+                      <button className="border-btn">
+                        Edit
+                      </button>
                     </td>
                   </tr>
                 </tbody>

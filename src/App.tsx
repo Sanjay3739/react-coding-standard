@@ -15,6 +15,7 @@ import Provider from "./components/Provider/provider";
 import Partner from "./components/Partner/partner";
 import Records from "./components/Records/record";
 import Access from "./components/Access/access";
+import CreatePartner from "./components/Partner/Page/create";
 
 const App: React.FC = () => {
   return (
@@ -38,6 +39,7 @@ const App: React.FC = () => {
                     <Route path="/profile/:id" element={<Profile />} />
                     <Route path="/providers/:id" element={<Provider />} />
                     <Route path="/partner/:id" element={<Partner />} />
+                    <Route path="/addPartner/:id" element={<CreatePartner />} />
                     <Route path="/records/:id" element={<Records />} />
                     <Route path="/access/:id" element={<Access />} />
                   </Routes>

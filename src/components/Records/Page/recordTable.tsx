@@ -1,81 +1,116 @@
 import React from "react";
+import SearchIcon from "@mui/icons-material/Search";
 
-interface CreateShiftModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-const CreateShiftModal: React.FC<CreateShiftModalProps> = ({ isOpen, onClose }) => {
-  // Add form states and handlers as necessary
-
+const RecordTable: React.FC = () => {
   return (
-    isOpen ? (
-      <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center">
-        <div className="bg-white rounded-lg p-4 max-w-lg w-full mx-auto">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold text-gray-700">Create Shift</h2>
-            <button onClick={onClose} title='sd'>
-              <i className="fas fa-times cursor-pointer"></i>
-            </button>
+    <>
+      <section className="mt-8">
+        <div className="w-full mx-auto">
+          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
+            <div className="flex flex-wrap mb-0 px-4 py-4">
+              <div className="w-full sm:w-1/2 lg:w-1/4 px-2 mb-4">
+                <input
+                  type="text"
+                  name="first_name"
+                  placeholder="First Name"
+                  title="input"
+                  className="w-full form-inputs"
+                />
+              </div>
+              <div className="w-full sm:w-1/2 lg:w-1/4 px-2 mb-4">
+                <input
+                  type="text"
+                  name="last_name"
+                  placeholder="Last Name"
+                  className=" w-full  form-inputs"
+                  title="input"
+                />
+              </div>
+              <div className="w-full sm:w-1/2 lg:w-1/4 px-2 mb-4">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  className="w-full  form-inputs"
+                  title="input"
+                />
+              </div>
+              <div className="w-full sm:w-1/2 lg:w-1/4 px-2 mb-4">
+                <input
+                  type="number"
+                  name="phone"
+                  placeholder="Phone Number"
+                  title="input"
+                  className="w-full form-inputs"
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-end mb-0 px-4 py-3 gap-2">
+              <button className="border-btn">clear</button>{" "}
+              <button className="bg-btn">Search</button>
+            </div>
+            <div className="block w-full overflow-x-auto">
+              <table className="items-center bg-transparent w-full border-collapse ">
+                <thead>
+                  <tr>
+                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      First name
+                    </th>
+                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      last Name
+                    </th>
+                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      Email
+                    </th>
+
+                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      Phone Number
+                    </th>
+                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      Address
+                    </th>
+                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                      <input
+                        type="checkbox"
+                        className="form-checkbox text-blue-600"
+                        title="checkbox"
+                      />
+                    </th>
+                    <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                      /argon/
+                    </th>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                      4,569
+                    </td>
+
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                      46,53%
+                    </td>
+                    <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      340
+                    </td>
+                    <td className="border-t-0 flex flex-wrap items-center gap-3 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <button className="border-btn">Explore</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <form className="my-4">
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-1" htmlFor="region">Region</label>
-              <select className="form-select block w-full mt-1 border-gray-300 rounded-md shadow-sm">
-                <option>Select</option>
-                {/* Add region options */}
-              </select>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-1" htmlFor="physician">Physician</label>
-              <select className="form-select block w-full mt-1 border-gray-300 rounded-md shadow-sm">
-                <option>Select</option>
-                {/* Add physician options */}
-              </select>
-            </div>
-            <div className="flex justify-between gap-4 mb-4">
-              <div className="w-1/2">
-                <label className="block text-gray-700 font-bold mb-1" htmlFor="start">Start</label>
-                <input type="time" className="form-input block w-full border-gray-300 rounded-md shadow-sm" defaultValue="03:45" />
-              </div>
-              <div className="w-1/2">
-                <label className="block text-gray-700 font-bold mb-1" htmlFor="end">End</label>
-                <input type="time" className="form-input block w-full border-gray-300 rounded-md shadow-sm" defaultValue="03:45" />
-              </div>
-            </div>
-            <div className="mb-4">
-              <label className="inline-flex items-center">
-                <input type="checkbox" className="form-checkbox" />
-                <span className="ml-2">Repeat</span>
-              </label>
-            </div>
-            <div className="mb-4 grid grid-cols-2 gap-4">
-              {/* Dynamically create checkbox for days */}
-              {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
-                <label key={day} className="inline-flex items-center">
-                  <input type="checkbox" className="form-checkbox" />
-                  <span className="ml-2">Every {day}</span>
-                </label>
-              ))}
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-1" htmlFor="repeat-end">Repeat end</label>
-              <select className="form-select block w-full mt-1 border-gray-300 rounded-md shadow-sm">
-                <option>2-times</option>
-                {/* Add more repeat options */}
-              </select>
-            </div>
-            <div className="flex justify-end gap-2">
-              <button type="button" className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700" onClick={onClose}>Save</button>
-              <button type="button" className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400" onClick={onClose}>Cancel</button>
-            </div>
-          </form>
         </div>
-      </div>
-    ) : null
+      </section>
+    </>
   );
 };
 
-export default CreateShiftModal;
-
-
+export default RecordTable;
