@@ -1,27 +1,48 @@
 import React from "react";
 import { Button, MenuItem, Select } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import AddIcon from "@mui/icons-material/Add";
 
-const ProviderTable: React.FC = () => {
+const PartnerTable: React.FC = () => {
   return (
     <>
       <section className="mt-8">
         <div className="w-full mx-auto">
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
             <div className="rounded-t mb-0 px-4 py-3 border-0">
-              <div className="flex flex-wrap items-center justify-between">
-                <Select
-                  placeholder="Select a Car…"
-                  sx={{ width: 350 }}
-                  startAdornment={<SearchIcon />}
+              <div className="flex justify-between">
+                <div className="flex flex-wrap gap-2">
+                  <div className="table_search_box">
+                    <div className="flex p-1 search items-center border border-300 rounded">
+                      <SearchIcon />
+                      <input
+                        type="text"
+                        placeholder="All Regions"
+                        className="border-none outline-none focus:ring-0"
+                      />
+                    </div>
+                  </div>
+                  <div className="table_search_box mr-2">
+                    <Select
+                      placeholder="Select a Car…"
+                      sx={{ width: 350 }}
+                      startAdornment={<SearchIcon />}
+                    >
+                      <MenuItem value="porsche">Porsche</MenuItem>
+                      <MenuItem value="lexus">Lexus</MenuItem>
+                      <MenuItem value="land rover">Land Rover</MenuItem>
+                      <MenuItem value="toyota">Toyota</MenuItem>
+                      <MenuItem value="bugatti">Bugatti</MenuItem>
+                    </Select>
+                  </div>
+                </div>
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  startIcon={<AddIcon />}
                 >
-                  <MenuItem value="porsche">Porsche</MenuItem>
-                  <MenuItem value="lexus">Lexus</MenuItem>
-                  <MenuItem value="land rover">Land Rover</MenuItem>
-                  <MenuItem value="toyota">Toyota</MenuItem>
-                  <MenuItem value="bugatti">Bugatti</MenuItem>
-                </Select>
-                <Button variant="contained">Create Provider Account</Button>
+                  Add Business
+                </Button>
               </div>
             </div>
             <div className="block w-full overflow-x-auto">
@@ -29,25 +50,22 @@ const ProviderTable: React.FC = () => {
                 <thead>
                   <tr>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      Stop Notification
+                      Profession
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      Name
+                      Business Name
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      Physician Name
+                      Email
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      Date of Service
+                      Fax Number
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      Phone
+                      Phone Number
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      Address
-                    </th>
-                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      Chat With
+                      Business Contact
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                       Action
@@ -80,12 +98,9 @@ const ProviderTable: React.FC = () => {
                     <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                       340
                     </td>
-                    <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                      340
-                    </td>
                     <td className="border-t-0 flex flex-wrap items-center gap-3 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                      <Button variant="outlined">Contact</Button>
-                      <Button variant="outlined">Edit</Button>
+                    <Button variant="outlined">Edit</Button>
+                      <Button variant="outlined">Delete</Button>
                     </td>
                   </tr>
                 </tbody>
@@ -98,4 +113,4 @@ const ProviderTable: React.FC = () => {
   );
 };
 
-export default ProviderTable;
+export default PartnerTable;
