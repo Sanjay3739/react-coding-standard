@@ -51,27 +51,28 @@ const LoginForm: React.FC = () => {
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
+  
     if (validateForm()) {
+      setLoading(true); // Show loading indicator only when form is valid
+  
       try {
         const response = await LoginApi(formData);
-        if (response?.data.success === true && response.data.status === 201) {
-          console.log("response.data.data.user", response.data.data);
-          const user = response.data.data.user;
-          const token = response.data.data;
+        if (response.success === true && response.status === 201) {
+          const user = response.data.user;
+          const token = response.data.token;
           saveUserToIndexedDB(user, token);
-          toast.success("user login successfully done.");
-          navigate(`/dashboard/${response.data.data.user.id}`);
-        } else if (
-          response?.data.success === false &&
-          response.data.status === 400
-        ) {
-          toast.error("Invalid Credentials");
+          toast.success(response.message);
+          navigate(`/dashboard/${response.data.user.id}`);
+        } else if (response.success === false) {
+          toast.error(response.message);
+        } else {
+          toast.error("An error occurred.");
         }
       } catch (error: any) {
+        toast.error("An error occurred.");
         setErrors(error.message);
       } finally {
-        setLoading(false);
+        setLoading(false); 
       }
     }
   };

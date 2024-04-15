@@ -5,29 +5,33 @@ import Hamburger from "./svg/hamburger.svg";
 import { Button, Stack } from "@mui/material";
 import { deleteUserDataFromIndexedDB } from "../../../store/indexDb";
 import { useNavigate } from "react-router-dom";
-
-interface User {
-  id: number;
-  userName: string;
-  email: string;
-}
-
-interface NavbarProps {
-  user: { user: User } | null;
-  userId: number | null;
-}
+import { toast } from "react-toastify";
+import { LogoutApi } from "../../../services/AuthApi/logout";
+import { NavbarProps } from "./state";
 
 const Navbar: React.FC<NavbarProps> = ({ user, userId }) => {
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState<boolean>(false);
 
-  const handleLogout = () => {
-    if (userId !== null) {
-      // Delete user data from IndexedDB
-      deleteUserDataFromIndexedDB(userId);
-      navigate("/");
+  const handleLogout = async () => {
+    if (userId !== null && user.token) {
+      try {
+        const response = await LogoutApi(user.token);
+        if (response.success) {
+          deleteUserDataFromIndexedDB(userId);
+          navigate("/");
+          toast.success(response.message
+          );
+        } else {
+          toast.error("Failed to logout.");
+        }
+      } catch (error) {
+        console.error("Error logging out:", error);
+        toast.error("An error occurred.");
+      }
     }
   };
+
   const toggleMode = () => {
     setDarkMode((prevMode) => !prevMode);
   };
@@ -46,8 +50,9 @@ const Navbar: React.FC<NavbarProps> = ({ user, userId }) => {
               <img src={Hamburger} alt="Hamburger" />
             </Button>
             <span className="admin-name">
-              {user?.user.userName ?? "Loading"}
+              {user?.userName ?? "Loading"}
             </span>
+
             <button className="border-btn" onClick={handleLogout}>
               Logout
             </button>

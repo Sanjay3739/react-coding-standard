@@ -1,5 +1,4 @@
 import axios from "axios";
-import { handleApiError } from "../ErrorHandling/errorHandling";
 import { LoginFormData } from "../state";
 
 const baseUrl = process.env.REACT_APP_API_URL;
@@ -17,11 +16,12 @@ export const LoginApi = async (formData: LoginFormData) => {
       }
     );
     if (response.data) {
-      return response;
+      return response.data;
     } 
    
   } catch (error: any) {
     console.error("error", error);
-    handleApiError(error);
+    throw error;
   }
 };
+

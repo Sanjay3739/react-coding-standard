@@ -68,10 +68,8 @@ const RegisterForm: React.FC = () => {
       try {
         const response = await RegisterApi(formData);
         if (response?.data.success === true && response.data.status === 201) {
-          toast.success("user Registered successfully done.");
+          toast.success(response?.data.message);
           navigate("/");
-        }else{
-          toast.error("user Registered successfully done.");
         }
       } catch (error: any) {
         setErrors(error.message);

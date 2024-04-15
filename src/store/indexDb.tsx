@@ -30,5 +30,5 @@ export async function fetchUserFromIndexedDB(userId: number) {
     .transaction(userStoreName, "readonly")
     .objectStore(userStoreName);
   const userData = await store.get(userId);
-  return userData?.token;
+  return userData;
 }
