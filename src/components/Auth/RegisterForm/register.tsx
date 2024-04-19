@@ -43,7 +43,10 @@ const RegisterForm: React.FC = () => {
 
     if (!formData.password.trim()) {
       newErrors.password = ["Password is required"];
+    } else if (formData.password.trim().length < 6) {
+      newErrors.password = ["Password must be at least 6 characters long"];
     }
+
     // if (!passwordRegex.test(formData.password.trim())) {
     //   newErrors.password = [
     //     "Password must contain at least one uppercase letter, one lowercase letter, and one number",
@@ -63,8 +66,8 @@ const RegisterForm: React.FC = () => {
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
     if (validateForm()) {
+      setLoading(true);
       try {
         const response = await RegisterApi(formData);
         if (response?.data.success === true && response.data.status === 201) {

@@ -20,6 +20,10 @@ const LoginForm: React.FC = () => {
   const [errors, setErrors] = useState<any>({});
   const { t } = useTranslation();
 
+  const setUserTokenFromLocalStorage = (token: string) => {
+    localStorage.setItem('userToken', token);
+  };
+    
   const handleRegister = () => {
     navigate("/register");
   };
@@ -60,6 +64,7 @@ const LoginForm: React.FC = () => {
         if (response.success === true && response.status === 201) {
           const user = response.data.user;
           const token = response.data.token;
+          setUserTokenFromLocalStorage(token);
           saveUserToIndexedDB(user, token);
           toast.success(response.message);
           navigate(`/dashboard/${response.data.user.id}`);

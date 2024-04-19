@@ -22,7 +22,7 @@ const App: React.FC = () => {
     <div className="wrapper app">
       <Router>
         <Routes>
-          <Route path="/" element={<LoginForm />} />
+          <Route path="/" element={<LoginForm />} />  
           <Route path="/register" element={<Register />} />
           <Route path="/forgot" element={<ForgotForm />} />
           <Route path="/reset" element={<ResetForm />} />

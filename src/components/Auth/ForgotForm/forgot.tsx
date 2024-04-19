@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 import "./forgot.scss";
 import Auth from "../svg/authentication.svg";
 import { useNavigate } from "react-router-dom";
 import { ForgotApi } from "../../../services/AuthApi/forgot";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 const ForgotForm: React.FC = () => {
   const navigate = useNavigate();
@@ -33,8 +34,14 @@ const ForgotForm: React.FC = () => {
     if (validateForm()) {
       try {
         const response = await ForgotApi(email);
+        if (response.success === true) {
+          toast.success(response.message);
+          navigate(`/`);
+        } else {
+          toast.error(response.message);
+        }
       } catch (error: any) {
-        setErrors(error.message);
+        setErrors({ email: [error.message] });
       }
     }
   };
@@ -96,8 +103,7 @@ const ForgotForm: React.FC = () => {
                   >
                     {t("forgotPassword.ResetPassword")}
                   </button>
-                  <a
-                    href=""
+                  <a 
                     className="text-center text-green-600 hover:text-green-700"
                   >
                     {" "}
@@ -111,7 +117,7 @@ const ForgotForm: React.FC = () => {
             </div>
           </div>
         </div>
-      </Box >
+      </Box>
     </>
   );
 };

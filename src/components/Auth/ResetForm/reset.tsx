@@ -4,6 +4,7 @@ import Auth from "../svg/authentication.svg";
 import { useNavigate } from "react-router-dom";
 import { ResetApi } from "../../../services/AuthApi/reset";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 const ResetForm: React.FC = () => {
   const navigate = useNavigate();
@@ -12,6 +13,8 @@ const ResetForm: React.FC = () => {
   const [ConfirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState<any>({});
   const { t } = useTranslation();
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get("token");
 
   const handleSignIn = () => {
     navigate("/");
@@ -46,7 +49,18 @@ const ResetForm: React.FC = () => {
 
     if (validateForm()) {
       try {
-        const response = await ResetApi(email, password, ConfirmPassword);
+        const response = await ResetApi(
+          email,
+          password,
+          ConfirmPassword,
+          token
+        );
+        if (response.success === true) {
+          toast.success(response.message);
+          navigate(`/`);
+        } else {
+          toast.error(response.message);
+        }
       } catch (error: any) {
         setErrors(error.message);
       }

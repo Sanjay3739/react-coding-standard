@@ -1,13 +1,28 @@
 import axios from "axios";
-import { handleApiError } from "../ErrorHandling/errorHandling";
 
-const baseUrl = process.env.REACT_APP_BASE_URL;
+const baseUrl = process.env.REACT_APP_API_URL;
 
-export const ResetApi = async (email: string, password: string, ConfirmPassword: string) => {
+export const ResetApi = async (
+  email: string,
+  password: string,
+  ConfirmPassword: string,
+  token: string | null
+) => {
   try {
-    const response = await axios.post(`${baseUrl}/reset-password`, { email, password, ConfirmPassword });
-    return response.data;
+    const response = await axios.post(
+      `${baseUrl}/reset-password`,
+      { email, password, ConfirmPassword, token },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (response.data) {
+      return response.data;
+    }
   } catch (error: any) {
-    handleApiError(error);
+    console.error("error", error);
+    throw error;
   }
 };
