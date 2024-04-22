@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Avatar from "../svg/avatar.svg";
-import backgroundImg from "../svg/bg.svg";
+import Avatar from "../../../assets/svg/avatar.svg";
+import backgroundImg from "../../../assets/svg/bg.svg";
 import { useNavigate } from "react-router-dom";
 import { LoginApi } from "../../../services/AuthApi/login";
 import "../LoginForm/login.scss";

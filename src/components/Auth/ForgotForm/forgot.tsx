@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import "./forgot.scss";
-import Auth from "../svg/authentication.svg";
+import Auth from "../../../assets/svg/authentication.svg";
 import { useNavigate } from "react-router-dom";
 import { ForgotApi } from "../../../services/AuthApi/forgot";
 import { useTranslation } from "react-i18next";

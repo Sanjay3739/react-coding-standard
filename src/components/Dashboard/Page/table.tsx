@@ -1,10 +1,10 @@
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import GreenCircleIcon from "../svg/greenCircle.svg";
-import PurpleCircleIcon from "../svg/purpleCircle.svg";
-import BlueCircleIcon from "../svg/blueCircle.svg";
-import PinkCircleIcon from "../svg/pinkCircle.svg";
-import YellowCircleIcon from "../svg/yellowCircle.svg";
+import GreenCircleIcon from "../../../assets/svg/greenCircle.svg";
+import PurpleCircleIcon from "../../../assets/svg/purpleCircle.svg";
+import BlueCircleIcon from "../../../assets/svg/blueCircle.svg";
+import PinkCircleIcon from "../../../assets/svg/pinkCircle.svg";
+import YellowCircleIcon from "../../../assets/svg/yellowCircle.svg";
 
 const Table: React.FC = () => {
   return (

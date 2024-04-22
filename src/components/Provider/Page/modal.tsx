@@ -1,6 +1,6 @@
 // ProviderModel.tsx
 import React from "react";
-import CancelSvg from "../svg/cancel.svg";
+import CancelSvg from "../../../assets/svg/cancel.svg";
 
 interface ProviderModelProps {
   showModal: boolean;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../ForgotForm/forgot.scss";
-import Auth from "../svg/authentication.svg";
+import Auth from "../../../assets/svg/authentication.svg";
 import { useNavigate } from "react-router-dom";
 import { ResetApi } from "../../../services/AuthApi/reset";
 import { useTranslation } from "react-i18next";

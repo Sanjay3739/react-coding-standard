@@ -1,10 +1,10 @@
 import React from "react";
-import NewIcon from "../svg/new.svg";
-import ManIcon from "../svg/man.svg";
-import ActiveIcon from "../svg/circleRight.svg";
-import Watch from "../svg/watch.svg";
-import CloseIcon from "../svg/userMessage.svg";
-import DollarIcon from "../svg/dollar.svg";
+import NewIcon from "../../../assets/svg/new.svg";
+import ManIcon from "../../../assets/svg/man.svg";
+import ActiveIcon from "../../../assets/svg/circleRight.svg";
+import Watch from "../../../assets/svg/watch.svg";
+import CloseIcon from "../../../assets/svg/userMessage.svg";
+import DollarIcon from "../../../assets/svg/dollar.svg";
 
 const ServiceButton: React.FC = () => {
   return (

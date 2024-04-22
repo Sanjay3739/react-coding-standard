@@ -1,11 +1,11 @@
 import React from "react";
 import { Button, Stack } from "@mui/material";
 import "./dashboard.scss";
-import SupportTeam from "./svg/supportTeam.svg";
-import ExportAll from "./svg/exportAll.svg";
-import Export from "./svg/export.svg";
-import CreateRequest from "./svg/createRequest.svg";
-import SendIcon from "./svg/send.svg";
+import SupportTeam from "../../assets/svg/supportTeam.svg";
+import ExportAll from "../../assets/svg/exportAll.svg";
+import Export from "../../assets/svg/export.svg";
+import CreateRequest from "../../assets/svg/createRequest.svg";
+import SendIcon from "../../assets/svg/send.svg";
 import Table from "./Page/table";
 import ServiceButton from "./Page/serviceBtn";
 

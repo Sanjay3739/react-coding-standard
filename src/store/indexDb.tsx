@@ -21,6 +21,7 @@ export async function deleteUserDataFromIndexedDB(userId: number) {
   const transaction = db.transaction(userStoreName, "readwrite");
   const store = transaction.objectStore(userStoreName);
   await store.delete(userId);
+  localStorage.clear();
   await transaction.done;
 }
 

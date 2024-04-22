@@ -15,11 +15,9 @@ export const RegisterApi = async (formData: RegisterFormData) => {
       },
     });
     if (response.data) {
-      return response.data;
-    }
-    if (response.status === 200) {
       return response;
     }
+   
   } catch (error: any) {
     handleApiError(error);
     throw error; // Re-throw error for further handling by caller if needed

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Avatar from "../svg/avatar.svg";
+import Avatar from "../../../assets/svg/avatar.svg";
 import "../RegisterForm/register.scss";
-import Mobile from "../svg/mobile.svg";
+import Mobile from "../../../assets/svg/mobile.svg";
 import { useNavigate } from "react-router-dom";
 import { RegisterApi } from "../../../services/AuthApi/register";
 import { useTranslation } from "react-i18next";

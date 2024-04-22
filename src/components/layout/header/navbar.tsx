@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../../../assets/logo.png";
-import MoonIcon from "./svg/moon.svg";
-import Hamburger from "./svg/hamburger.svg";
+import MoonIcon from "../../../assets/svg/moon.svg";
+import Hamburger from "../../../assets/svg/hamburger.svg";
 import { Button, Stack } from "@mui/material";
 import { deleteUserDataFromIndexedDB } from "../../../store/indexDb";
 import { useNavigate } from "react-router-dom";

@@ -1,5 +1,5 @@
 import React from "react";
-import CancelSvg from "../../Provider/svg/cancel.svg";
+import CancelSvg from "../../../assets/svg/cancel.svg";
 
 interface CreateShiftModalProps {
   isOpen: boolean;
