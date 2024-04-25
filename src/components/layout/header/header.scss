@@ -9,23 +9,6 @@ body {
     overflow: hidden;
 }
 
-.nav li {
-    float: left;
-}
-
-.nav li .link {
-    display: block;
-    color: #333;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.nav li.active .link {
-    border-bottom: 2px solid #0cafff;
-    color: #0cafff;
-}
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -45,16 +28,6 @@ body {
 .logo {
     width: 98px;
     height: auto;
-}
-
-.button {
-    margin-right: 10px;
-    padding: 8px 16px;
-    background-color: #555;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
 .admin-name {
@@ -104,6 +77,52 @@ body {
 .button-container {
     display: flex;
     gap: 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    padding: 15px 15px;
+    color: #000;
+    border-bottom: 4px solid transparent;
+}
+
+.nav-link.active {
+    border-bottom: 3px solid #0cafff;
+    color: #0cafff;
+}
+
+.menu-item {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-left: 10px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 11%;
+    left: 19;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 0;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #f9f9f9;
+}
+
+li:hover .dropdown {
+    display: flex;
 }
 
 @media (min-width: 768px) {

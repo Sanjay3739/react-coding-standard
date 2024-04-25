@@ -1,10 +1,12 @@
 .dashboard_details {
     margin: 35px;
 }
+
 .box_btn {
     display: flex;
     justify-content: space-between;
 }
+
 .custom-button {
     text-transform: none !important;
     font-size: 12px !important;
@@ -12,13 +14,15 @@
     justify-content: space-between !important;
 }
 
-.custom-button > img {
+.custom-button>img {
     margin-right: 5px;
 }
+
 .search {
     background-color: #fff;
     padding-left: 10px;
 }
+
 .text-gray {
     color: gray;
 }
@@ -87,7 +91,7 @@
     font-size: clamp(15px, calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320))), 24px);
 }
 
-.svg_text > img {
+.svg_text>img {
     margin-right: 10px;
 }
 
@@ -138,4 +142,16 @@
         rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
         rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
         rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset !important;
+}
+
+.custom-table {
+    padding: 0.75rem 1.5rem;
+    background-color: #f8fafc;
+    color: #66788a;
+    border: 0px solid rgb(13, 87, 161); /* Set border opacity to 100% */
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-weight: 600;
+    text-align: left;
 }

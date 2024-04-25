@@ -20,8 +20,8 @@ const LoginForm: React.FC = () => {
   const [errors, setErrors] = useState<any>({});
   const { t } = useTranslation();
 
-  const setUserTokenFromLocalStorage = (token: string) => {
-    localStorage.setItem('userToken', token);
+  const setUserTokenFromLocalStorage = (data: string) => {
+    localStorage.setItem('application_data', data);
   };
     
   const handleRegister = () => {
@@ -57,17 +57,17 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
   
     if (validateForm()) {
-      setLoading(true); // Show loading indicator only when form is valid
+      setLoading(true);
   
       try {
         const response = await LoginApi(formData);
         if (response.success === true && response.status === 201) {
           const user = response.data.user;
           const token = response.data.token;
-          setUserTokenFromLocalStorage(token);
+          setUserTokenFromLocalStorage( response.data.user.id);
           saveUserToIndexedDB(user, token);
           toast.success(response.message);
-          navigate(`/dashboard/${response.data.user.id}`);
+          navigate(`/dashboard`);
         } else if (response.success === false) {
           toast.error(response.message);
         } else {

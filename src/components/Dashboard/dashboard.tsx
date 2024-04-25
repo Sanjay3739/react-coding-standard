@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Stack } from "@mui/material";
 import "./dashboard.scss";
 import SupportTeam from "../../assets/svg/supportTeam.svg";
@@ -8,8 +8,46 @@ import CreateRequest from "../../assets/svg/createRequest.svg";
 import SendIcon from "../../assets/svg/send.svg";
 import Table from "./Page/table";
 import ServiceButton from "./Page/serviceBtn";
+import { fetchUserDataApi } from "../../services/DashBoard/fetchUserData";
+import {
+  fetchUserFromIndexedDB,
+  getUserTokenFromLocalStorage,
+} from "../../store/indexDb";
+import { toast } from "react-toastify";
 
 const Dashboard: React.FC = () => {
+  const [userData, setUserData] = useState<any>(null);
+  const [token, setToken] = useState<any>(null);
+  const userId = getUserTokenFromLocalStorage();
+
+  useEffect(() => {
+    async function fetchData() {
+      if (userId !== null) {
+        const userIdNumber = parseInt(userId, 10);
+        if (!isNaN(userIdNumber)) {
+          const savedUser = await fetchUserFromIndexedDB(userIdNumber);
+          setToken(savedUser.token);
+        }
+      }
+    }
+    fetchData();
+  }, [userId]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (token) {
+          const data = await fetchUserDataApi(token);
+          toast.success(data.message);
+          setUserData(data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchData();
+  }, [token]);
   return (
     <>
       <ServiceButton />
@@ -37,7 +75,7 @@ const Dashboard: React.FC = () => {
           </Stack>
         </div>
       </div>{" "}
-      <Table />
+      <Table userData={userData}/>
     </>
   );
 };

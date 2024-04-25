@@ -33,3 +33,8 @@ export async function fetchUserFromIndexedDB(userId: number) {
   const userData = await store.get(userId);
   return userData;
 }
+
+export const getUserTokenFromLocalStorage = () => {
+  return localStorage.getItem("application_data");
+};
+
