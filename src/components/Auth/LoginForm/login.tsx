@@ -21,9 +21,9 @@ const LoginForm: React.FC = () => {
   const { t } = useTranslation();
 
   const setUserTokenFromLocalStorage = (data: string) => {
-    localStorage.setItem('application_data', data);
+    localStorage.setItem("application_data", data);
   };
-    
+
   const handleRegister = () => {
     navigate("/register");
   };
@@ -55,16 +55,16 @@ const LoginForm: React.FC = () => {
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     if (validateForm()) {
       setLoading(true);
-  
+
       try {
         const response = await LoginApi(formData);
         if (response.success === true && response.status === 201) {
           const user = response.data.user;
           const token = response.data.token;
-          setUserTokenFromLocalStorage( response.data.user.id);
+          setUserTokenFromLocalStorage(response.data.user.id);
           saveUserToIndexedDB(user, token);
           toast.success(response.message);
           navigate(`/dashboard`);
@@ -77,7 +77,7 @@ const LoginForm: React.FC = () => {
         toast.error("An error occurred.");
         setErrors(error.message);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     }
   };
@@ -96,15 +96,19 @@ const LoginForm: React.FC = () => {
             <input
               type="submit"
               onClick={handleRegister}
-              className="Register_btn mb-5"
+              className="Register_btn mb-5 cursor-pointer"
               value="Register"
             />
           </div>
-          <img className="background_img" src={backgroundImg} alt="image" />
+          <img
+            className="background_img"
+            src={backgroundImg}
+            alt="background images"
+          />
         </div>
         <div className="form-content">
           <form onSubmit={handleSubmit} className="auth_form">
-            <img className="avatar" src={Avatar} alt="image" />
+            <img className="avatar" src={Avatar} alt="avatar" />
             <h2 className="title">{t("login.welcome")}</h2>
             <div className="mb-4">
               <div className="relative">
@@ -152,13 +156,13 @@ const LoginForm: React.FC = () => {
                 </p>
               )}
             </div>
-            <a className="forgot_link" href="" onClick={handleForgot}>
+            <span className="forgot_link cursor-pointer " onClick={handleForgot}>
               {t("login.forgotPassword")}
-            </a>
+            </span>
             <input type="submit" className="submit_btn" value="Login" />
             <div className="card-info">
               <p>
-                {t("login.desc1")} <a href="">{t("login.terms")}</a>
+                {t("login.desc1")} <span>{t("login.terms")}</span>
               </p>
             </div>
           </form>

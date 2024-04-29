@@ -87,7 +87,7 @@ const RegisterForm: React.FC = () => {
       <div className="register-container">
         <div className="form-content">
           <form onSubmit={handleSubmit} className="auth_form">
-            <img className="avatar" src={Avatar} title="image" />
+            <img className="avatar" src={Avatar} title="avatar" alt="images"/>
             <h2 className="title">{t("register.welcome")}</h2>
             <div className="mb-4">
               <div className="relative">
@@ -181,18 +181,18 @@ const RegisterForm: React.FC = () => {
                 </p>
               )}{" "}
             </div>
-            <a className="login_link" href="" onClick={handleLogin}>
+            <span className="login_link cursor-pointer" onClick={handleLogin}>
               {t("register.loginHere")}
-            </a>
+            </span>
             <input type="submit" className="submit_btn" value="Register" />
             <div className="card-info">
               <p>
-                {t("register.desc1")} <a href="">{t("register.terms")} </a>
+                {t("register.desc1")} <span>{t("register.terms")} </span>
               </p>
             </div>
           </form>
         </div>
-        <div className="img ">
+        <div className="img">
           <span className="signIn sign-info">
             {t("register.SignUp")}
             <br />
@@ -201,7 +201,12 @@ const RegisterForm: React.FC = () => {
               {t("register.getStarted")} <br /> {t("register.accountCreate")}
             </span>
           </span>
-          <img className="background-img" src={Mobile} title="image" />
+          <img
+            className="background-img"
+            src={Mobile}
+            title="background image"
+            alt="images"
+          />
         </div>
       </div>
     </>

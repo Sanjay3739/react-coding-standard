@@ -50,7 +50,7 @@ const CreateShiftModal: React.FC<CreateShiftModalProps> = ({
               </label>
               <input
                 type="time"
-                className="s block w-full border-gray-300 rounded-md shadow-sm"
+                className="form-inputs block w-full border-gray-300 rounded-md shadow-sm"
                 defaultValue="03:45"
               />
             </div>

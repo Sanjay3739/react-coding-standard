@@ -1,12 +1,11 @@
 import React from "react";
-import SearchIcon from "@mui/icons-material/Search";
 
 const RecordTable: React.FC = () => {
   return (
     <>
       <section className="mt-8">
         <div className="w-full mx-auto">
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
+          <div className="flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
             <div className="flex flex-wrap mb-0 px-4 py-4">
               <div className="w-full sm:w-1/2 lg:w-1/4 px-2 mb-4">
                 <input

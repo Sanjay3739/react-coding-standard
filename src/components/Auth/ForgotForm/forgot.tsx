@@ -58,7 +58,7 @@ const ForgotForm: React.FC = () => {
                 className="max-w-full h-auto"
               />
             </div>
-            <div className="w-full md:w-2/3 flex flex-col justify-center ">
+            <div className="w-full md:w-2/3 flex flex-col justify-center form_container">
               <div className="max-w-md mx-auto">
                 <h2 className="text-4xl mb-4 h2_text">
                   {t("forgotPassword.forgot")}
@@ -103,15 +103,14 @@ const ForgotForm: React.FC = () => {
                   >
                     {t("forgotPassword.ResetPassword")}
                   </button>
-                  <a 
-                    className="text-center text-green-600 hover:text-green-700"
+                  <button
+                    onClick={handleSignUp}
+                    className="cursor-pointer text-center text-green-600 hover:text-green-700"
+                    title="forgot link"
                   >
-                    {" "}
                     {t("forgotPassword.notNumber")}{" "}
-                    <span onClick={handleSignUp}>
-                      {t("forgotPassword.SignUp")}
-                    </span>
-                  </a>
+                    <span>{t("forgotPassword.SignUp")}</span>
+                  </button>
                 </form>
               </div>
             </div>

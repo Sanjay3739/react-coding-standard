@@ -1,4 +1,5 @@
 @media screen and (max-width: 1050px) {
+
     .login-container,
     .register-container {
         grid-gap: 5rem;
@@ -6,7 +7,7 @@
 }
 
 @media screen and (max-width: 1000px) {
-  
+
 
     .form-content h2 {
         font-size: 2.4rem;
@@ -15,13 +16,19 @@
 }
 
 @media screen and (max-width: 900px) {
+
     .login-container,
     .register-container {
         grid-template-columns: none !important;
     }
 
-    .img, .image-box {
+    .img,
+    .image-box {
         display: none !important;
+    }
+
+    .form_container {
+        width: 100% !important;
     }
 
     .wave {
